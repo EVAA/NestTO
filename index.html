@@ -1,16 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NestTO</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main>
-    <h1>NestTO</h1>
-    <p>Find Toronto neighbourhoods that match your budget, bedroom needs, and lifestyle preferences.</p>
-    <button>Start Matching</button>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Toronto Neighbourhood Recommender</p>
+      <h1>NestTO</h1>
+      <p>
+        Find Toronto neighbourhoods that fit your budget, bedroom needs,
+        and lifestyle preferences.
+      </p>
+    </section>
+
+    <section class="layout">
+      <form class="panel" id="recommenderForm">
+        <h2>Your Preferences</h2>
+
+        <label>
+          Annual Income
+          <input type="number" id="income" value="70000" min="1" />
+        </label>
+
+        <label>
+          Transit Importance: <span id="transitValue">6</span>
+          <input type="range" id="transit" min="0" max="10" value="6" />
+        </label>
+
+        <label>
+          Hotspot Importance: <span id="hotspotValue">8</span>
+          <input type="range" id="hotspot" min="0" max="10" value="8" />
+        </label>
+
+        <label>
+          Bedrooms
+          <select id="bedrooms">
+            <option value="0">Studio</option>
+            <option value="1" selected>1 Bedroom</option>
+            <option value="2">2 Bedrooms</option>
+            <option value="3">3+ Bedrooms</option>
+          </select>
+        </label>
+
+        <div class="budget-grid">
+          <label>
+            Min Budget
+            <input type="number" id="minBudget" value="1400" />
+          </label>
+
+          <label>
+            Max Budget
+            <input type="number" id="maxBudget" value="2200" />
+          </label>
+        </div>
+
+        <button type="submit">Find My Match</button>
+      </form>
+
+      <section class="results-area">
+        <div class="results-header">
+          <h2>Top Recommendations</h2>
+          <p id="status">Add your preferences and run the recommender.</p>
+        </div>
+
+        <div id="results" class="results"></div>
+      </section>
+    </section>
   </main>
 
   <script src="script.js"></script>
